@@ -17,7 +17,7 @@
 
 #include <safe_landing_planner/waypoint_generator.hpp>
 
-namespace avoidance {
+namespace slp {
 
 class WaypointGeneratorNode final {
  public:

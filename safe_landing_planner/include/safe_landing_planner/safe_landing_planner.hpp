@@ -11,7 +11,7 @@
 
 #include "grid.hpp"
 
-namespace avoidance {
+namespace slp {
 
 class SafeLandingPlanner {
  public:

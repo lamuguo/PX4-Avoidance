@@ -1,6 +1,6 @@
 #include "safe_landing_planner/safe_landing_planner_node.hpp"
 
-namespace avoidance {
+namespace slp {
 
 const Eigen::Vector3f nan_setpoint = Eigen::Vector3f(NAN, NAN, NAN);
 

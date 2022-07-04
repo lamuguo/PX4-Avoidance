@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>avoidance</name>
+  <name>avoidance_base</name>
   <version>0.2.0</version>
   <description>avoidance is a ros package for computer vision based navigtation</description>
 

@@ -3,7 +3,7 @@
 #include <Eigen/Core>
 #include <Eigen/Dense>
 
-namespace avoidance {
+namespace slp {
 
 class Grid {
  public:

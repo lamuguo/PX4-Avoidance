@@ -19,7 +19,7 @@ find_package(catkin REQUIRED COMPONENTS
   mavros_msgs
   mavros
   mavros_extras
-  avoidance
+  avoidance_base
 )
 find_package(PCL 1.7 REQUIRED)
 find_package(octomap REQUIRED)

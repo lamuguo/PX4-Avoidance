@@ -3,7 +3,7 @@
 #include "safe_landing_planner/safe_landing_planner.hpp"
 #include "tf/transform_datatypes.h"
 
-namespace avoidance {
+namespace slp {
 const Eigen::Vector3f nan_setpoint = Eigen::Vector3f(NAN, NAN, NAN);
 
 WaypointGeneratorNode::WaypointGeneratorNode(const ros::NodeHandle &nh) : nh_(nh), spin_dt_(0.1) {
@@ -80,7 +80,7 @@ void WaypointGeneratorNode::trajectoryCallback(const mavros_msgs::Trajectory &ms
   if (update && msg.point_valid[0] == true) {
     waypointGenerator_.goal_ = avoidance::toEigen(msg.point_1.position);
     waypointGenerator_.velocity_setpoint_ = avoidance::toEigen(msg.point_1.velocity);
-    waypointGenerator_.is_land_waypoint_ = (msg.command[1] == static_cast<int>(MavCommand::MAV_CMD_NAV_LAND));
+    waypointGenerator_.is_land_waypoint_ = (msg.command[1] == static_cast<int>(avoidance::MavCommand::MAV_CMD_NAV_LAND));
     ROS_INFO_STREAM("\033[1;33m [WGN] Set New goal from FCU " << waypointGenerator_.goal_.transpose()
                                                               << " - nan nan nan \033[0m");
   }
@@ -254,18 +254,17 @@ void WaypointGeneratorNode::goalVisualization() {
   m.lifetime = ros::Duration();
   m.id = id;
   id++;
-  m.pose.position = toPoint(waypointGenerator_.goal_);
+  m.pose.position = avoidance::toPoint(waypointGenerator_.goal_);
 
   marker_goal_pub_.publish(m);
 }
 }
 
 int main(int argc, char **argv) {
-  using namespace avoidance;
   ros::init(argc, argv, "waypoint_generator_node");
   ros::NodeHandle nh("~");
 
-  WaypointGeneratorNode NodeWG(nh);
+  slp::WaypointGeneratorNode NodeWG(nh);
   NodeWG.startNode();
   while (ros::ok()) {
     ros::Duration(1.0).sleep();

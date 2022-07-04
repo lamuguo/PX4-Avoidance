@@ -10,7 +10,7 @@
 
 #include "avoidance/common.h"
 
-namespace avoidance {
+namespace slp {
 
 const std::vector<Eigen::Vector2f> exploration_pattern = {
     Eigen::Vector2f(1.f, 0.f),  Eigen::Vector2f(1.f, 1.f),   Eigen::Vector2f(0.f, 1.f),  Eigen::Vector2f(-1.f, 1.f),

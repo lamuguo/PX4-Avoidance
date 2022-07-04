@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.12)
-project(avoidance)
+project(avoidance_base)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,17 +19,17 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(PCL 1.7 REQUIRED)
 
 if(DISABLE_SIMULATION)
-  message(STATUS "Building avoidance without Gazebo Simulation")
+  message(STATUS "Building avoidance_base without Gazebo Simulation")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DDISABLE_SIMULATION")
 else()
-  message(STATUS "Building avoidance with Gazebo Simulation")
+  message(STATUS "Building avoidance_base with Gazebo Simulation")
   find_package(yaml-cpp REQUIRED)
 endif(DISABLE_SIMULATION)
 
 catkin_package(
   INCLUDE_DIRS include
   CATKIN_DEPENDS roscpp rospy std_msgs mavros_msgs geometry_msgs sensor_msgs message_runtime tf
-  LIBRARIES avoidance
+  LIBRARIES avoidance_base
 )
 
 ###########
@@ -60,14 +60,14 @@ if(NOT DISABLE_SIMULATION)
   set(AVOIDANCE_CPP_FILES "${AVOIDANCE_CPP_FILES}"
                               "src/rviz_world_loader.cpp")
 endif()
-add_library(avoidance     "${AVOIDANCE_CPP_FILES}")
+add_library(avoidance_base     "${AVOIDANCE_CPP_FILES}")
 
 
 ## Add cmake target dependencies of the library
-add_dependencies(avoidance ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(avoidance_base ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(avoidance
+target_link_libraries(avoidance_base
   ${catkin_LIBRARIES}
   ${YAML_CPP_LIBRARIES})
 

@@ -18,7 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
   mavros_extras
   mavros_msgs
   mavlink
-  avoidance
+  avoidance_base
 )
 find_package(PCL 1.7 REQUIRED)
 
@@ -108,7 +108,7 @@ generate_dynamic_reconfigure_options(
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES local_planner
-  CATKIN_DEPENDS roscpp rospy std_msgs mavros_msgs geometry_msgs sensor_msgs message_runtime tf avoidance
+  CATKIN_DEPENDS roscpp rospy std_msgs mavros_msgs geometry_msgs sensor_msgs message_runtime tf avoidance_base
 #  DEPENDS system_lib
 )
 

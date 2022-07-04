@@ -4,7 +4,7 @@
 #include <ros/ros.h>
 #include "safe_landing_planner.hpp"
 
-namespace avoidance {
+namespace slp {
 
 class SafeLandingPlannerVisualization {
  public:

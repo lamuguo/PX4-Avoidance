@@ -5,7 +5,7 @@
 #include <visualization_msgs/Marker.h>
 #include <visualization_msgs/MarkerArray.h>
 
-namespace avoidance {
+namespace slp {
 
 void SafeLandingPlannerVisualization::initializePublishers(ros::NodeHandle& nh) {
   local_pointcloud_pub_ = nh.advertise<pcl::PointCloud<pcl::PointXYZI>>("/grid_pointcloud", 1);

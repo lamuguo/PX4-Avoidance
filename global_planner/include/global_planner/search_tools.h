@@ -258,6 +258,7 @@ bool reverseSearch(GlobalPlanner* global_planner, const Cell& t) {
       }
     }
   }
+  return false;
   // TODO: return?
 }
 

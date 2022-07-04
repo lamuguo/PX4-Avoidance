@@ -4,10 +4,9 @@
 
 #include <ros/console.h>
 
-namespace avoidance {
+namespace slp {
 const Eigen::Vector3f nan_setpoint = Eigen::Vector3f(NAN, NAN, NAN);
 
-using avoidance::SLPState;
 std::string toString(SLPState state) {
   std::string state_str = "unknown";
   switch (state) {

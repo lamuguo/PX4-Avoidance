@@ -16,7 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
   mavros_msgs
   mavlink
   message_generation
-  avoidance
+  avoidance_base
 )
 find_package(PCL 1.7 REQUIRED)
 
@@ -64,7 +64,7 @@ generate_dynamic_reconfigure_options(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  CATKIN_DEPENDS roscpp rospy std_msgs mavros_msgs geometry_msgs mav_msgs sensor_msgs message_runtime tf message_runtime avoidance
+  CATKIN_DEPENDS roscpp rospy std_msgs mavros_msgs geometry_msgs mav_msgs sensor_msgs message_runtime tf message_runtime avoidance_base
 #  DEPENDS system_lib
 )
 

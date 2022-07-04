@@ -24,7 +24,7 @@
 #include "safe_landing_planner.hpp"
 #include "safe_landing_planner_visualization.hpp"
 
-namespace avoidance {
+namespace slp {
 
 class SafeLandingPlannerNode {
  public:

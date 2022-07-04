@@ -1,7 +1,7 @@
 #include "safe_landing_planner/safe_landing_planner.hpp"
 #include "avoidance/common.h"
 
-namespace avoidance {
+namespace slp {
 
 void SafeLandingPlanner::runSafeLandingPlanner() {
   if (size_update_) {
